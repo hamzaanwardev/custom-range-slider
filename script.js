@@ -14,10 +14,17 @@ range.addEventListener('input', (e) => {
     const max = +e.target.max
     const min = +e.target.min
 
-    const left = value * (num_width / max) - num_label / 2;
+    const left = value * (num_width / max) - num_label / 2 + scale(value, min, max, 10, -10);
 
     label.style.left = `${left}px`
 
-    console.log(range_width , label_width)
+    // console.log(range_width , label_width)
     label.innerHTML = value
 })
+
+
+// Stack Overflow refrence
+
+function scale (number, inMin, inMax, outMin, outMax) {
+    return (number - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
+}
