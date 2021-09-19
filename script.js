@@ -11,6 +11,13 @@ range.addEventListener('input', (e) => {
 
     const num_label_width = +label_width.substring(0, range_width.length - 2);
 
+    const max = +e.target.max
+    const min = +e.target.min
+
+    const left = value * (num_width / max) - num_label / 2;
+
+    label.style.left = `${left}px`
+
     console.log(range_width , label_width)
     label.innerHTML = value
 })
